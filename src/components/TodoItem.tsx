@@ -23,8 +23,8 @@ export function TodoItem({
   }
 
   return (
-    <div className="flex flex-1 items-center border-[1px] rounded-lg border-gray-400 bg-gray-500 p-4">
-      <label className="flex flex-1 items-center gap-3 cursor-pointer">
+    <div className="flex flex-1 border-[1px] rounded-lg border-gray-400 bg-gray-500 p-4 gap-2">
+      <label className="flex flex-1 gap-3 cursor-pointer group">
         <input
           type="checkbox"
           onChange={handleCheckTodo}
@@ -34,12 +34,16 @@ export function TodoItem({
         />
         {isChecked ? (
           <CheckCircle
-            className="bg-gray-100 rounded-full text-purple-700"
-            weight="fill"
+            className="rounded-full text-purple-700 group-hover:text-purple-500 transition-colors"
+            weight="bold"
             size={24}
           />
         ) : (
-          <Circle className="text-blue-500" size={24} />
+          <Circle
+            className="text-blue-500 group-hover:text-blue-700 transition-colors"
+            weight="bold"
+            size={24}
+          />
         )}
         <span
           className={`w-full text-sm ${
@@ -51,8 +55,8 @@ export function TodoItem({
       </label>
       <Trash
         onClick={onDelete}
-        size={24}
-        className="text-gray-300 hover:bg-gray-400 hover:text-danger hover:rounded p-1 cursor-pointer"
+        size={28}
+        className="text-gray-300 hover:bg-gray-400 hover:text-danger hover:rounded p-1 cursor-pointer transition-colors"
       />
     </div>
   );
